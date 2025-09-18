@@ -5,4 +5,5 @@
 #Домашняя работа 2
 Скрипт `data_loader.py` читает датасет и выводит первые 10 строк.
 Результат работы скрипта:
-![Результат raw_data.head(10)](screenshot.jpg)
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/821898de-e93b-49c8-86bd-a0b1efc4c3b7" />
+
