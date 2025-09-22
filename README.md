@@ -7,3 +7,9 @@
 Результат работы скрипта:
 <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/821898de-e93b-49c8-86bd-a0b1efc4c3b7" />
 
+#Домашняя работа 3
+Приведение колонок
+# Выводим типы всех колонок
+print("\nТипы колонок после приведения:")
+print(raw_data.dtypes)
+Результат работы скрипта:
