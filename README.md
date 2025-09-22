@@ -1,4 +1,4 @@
-<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/50e7153e-62f9-4dce-b245-1a6ab63d33f8" /># my-project
+# my-project
 #Домашняя работа 1
 Ссылка на датасет Bio Ethanol Production Dataset: https://drive.google.com/file/d/1odXw81javPy4RwmYhj4IZts80g-3rMOv/view?usp=sharing
 
