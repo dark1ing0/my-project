@@ -1,4 +1,4 @@
-# my-project
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/50e7153e-62f9-4dce-b245-1a6ab63d33f8" /># my-project
 #Домашняя работа 1
 Ссылка на датасет Bio Ethanol Production Dataset: https://drive.google.com/file/d/1odXw81javPy4RwmYhj4IZts80g-3rMOv/view?usp=sharing
 
@@ -13,3 +13,4 @@
 print("\nТипы колонок после приведения:")
 print(raw_data.dtypes)
 Результат работы скрипта:
+<img width="1919" height="1180" alt="hw3" src="https://github.com/user-attachments/assets/77208832-6b0d-4717-a50c-c7175c3cb56c" />
