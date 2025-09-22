@@ -13,4 +13,5 @@
 print("\nТипы колонок после приведения:")
 print(raw_data.dtypes)
 Результат работы скрипта:
-<img width="1919" height="1180" alt="hw3" src="https://github.com/user-attachments/assets/77208832-6b0d-4717-a50c-c7175c3cb56c" />
+<img width="1919" height="1074" alt="hw3" src="https://github.com/user-attachments/assets/5728ade9-6ee6-4ca0-9731-5ff6cfb57742" />
+
