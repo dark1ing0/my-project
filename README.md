@@ -21,3 +21,5 @@ str | "USA", "Hello", "123" | Текст: фильтрация, группиро
 Результат работы скрипта:
 <img width="1919" height="1074" alt="hw3" src="https://github.com/user-attachments/assets/5728ade9-6ee6-4ca0-9731-5ff6cfb57742" />
 
+Далее создание clean_data.csv
+`raw_data.to_csv("clean_data.csv", index=False)` после запуска скрипта появился файл. В нём лежат все строки DataFrame с правильными типами.
