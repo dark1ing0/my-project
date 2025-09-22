@@ -22,4 +22,6 @@ str | "USA", "Hello", "123" | Текст: фильтрация, группиро
 <img width="1919" height="1074" alt="hw3" src="https://github.com/user-attachments/assets/5728ade9-6ee6-4ca0-9731-5ff6cfb57742" />
 
 Далее создание clean_data.parquet
-`raw_data.to_parquet("clean_data.parquet", index=False)` после запуска скрипта появился файл. В нём лежат все строки DataFrame с правильными типами.
+`raw_data.to_parquet("clean_data.parquet", index=False)` 
+Далее надо установить дополнительную библиотеку `pip install pyarrow`
+После установки и запуска скрипта появился файл. В нём лежат все строки DataFrame с правильными типами.
