@@ -1,13 +1,10 @@
 # my-project
-#Домашняя работа 1
 Ссылка на датасет Bio Ethanol Production Dataset: https://drive.google.com/file/d/1odXw81javPy4RwmYhj4IZts80g-3rMOv/view?usp=sharing
 
-#Домашняя работа 2
 Скрипт `data_loader.py` читает датасет и выводит первые 10 строк.
 Результат работы скрипта:
 <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/821898de-e93b-49c8-86bd-a0b1efc4c3b7" />
 
-#Домашняя работа 3
 Приведение колонок. В моем датасет 3 вида типа данных:
 Тип данных | Примеры | Применение
 --- | --- | ---
