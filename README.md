@@ -18,10 +18,13 @@ powershell
 
 ## 2️⃣ Загрузка датасета
 Создала файл data_loader.py и вставила туда код:
-`import pandas as pd
-FILE_ID = "1odXw81javPy4RwmYhj4IZts80g-3rMOv" # Google Drive file id
-file_url = f"https://drive.google.com/uc?id={FILE_ID}"
-raw_data = pd.read_csv(file_url) # Читаем CSV`
+`import pandas as pd`
+
+`FILE_ID = "1odXw81javPy4RwmYhj4IZts80g-3rMOv"` # Google Drive file id
+
+`file_url = f"https://drive.google.com/uc?id={FILE_ID}"`
+
+`raw_data = pd.read_csv(file_url)` # Читаем CSV
 
 Скрипт `data_loader.py` читает датасет и выводит первые 10 строк.
 Результат работы скрипта:
