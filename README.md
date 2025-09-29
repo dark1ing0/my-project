@@ -41,8 +41,8 @@ str | "USA", "Hello", "123" | Текст: фильтрация, группиро
 `print("\nТипы колонок после приведения:")`
 `print(raw_data.dtypes)`
 
-# Пример приведения типов
-raw_data["Year"] = raw_data["Year"].astype(int)
+Пример приведения типов:
+`raw_data["Year"] = raw_data["Year"].astype(int)`
 
 Приведение типов должно выполняться после того, как данные уже загружены в raw_data. Если писать до raw_data = pd.read_csv(...), переменной ещё нет, и Python выдаст ошибку. Получается: Загружаем данные из CSV (raw_data = pd.read_csv(file_url)) → Приводим колонки к нужным типам → Выводим проверку (print(raw_data.head(10)))
 
