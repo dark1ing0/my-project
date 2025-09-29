@@ -39,17 +39,19 @@ float | 3.14, 0.5, -12.7 | Дробные числа: усреднение, вы
 str | "USA", "Hello", "123" | Текст: фильтрация, группировка, поиск, замена
 
 `print("\nТипы колонок после приведения:")`
+
 `print(raw_data.dtypes)`
 
 Пример приведения типов:
 `raw_data["Year"] = raw_data["Year"].astype(int)`
 
-Приведение типов должно выполняться после того, как данные уже загружены в raw_data. Если писать до raw_data = pd.read_csv(...), переменной ещё нет, и Python выдаст ошибку. Получается: Загружаем данные из CSV (raw_data = pd.read_csv(file_url)) → Приводим колонки к нужным типам → Выводим проверку (print(raw_data.head(10)))
+Приведение типов должно выполняться после того, как данные уже загружены в raw_data. Если писать до `raw_data = pd.read_csv(...)`, переменной ещё нет, и Python выдаст ошибку. Получается: Загружаем данные из CSV (`raw_data = pd.read_csv(file_url)`) → Приводим колонки к нужным типам → Выводим проверку (`print(raw_data.head(10))`)
 
 Результат работы скрипта:
 <img width="1919" height="1074" alt="hw3" src="https://github.com/user-attachments/assets/5728ade9-6ee6-4ca0-9731-5ff6cfb57742" />
 
-Далее создание clean_data.parquet
-`raw_data.to_parquet("clean_data.parquet", index=False)` 
-Далее надо установить дополнительную библиотеку `pip install pyarrow`
+Далее создание clean_data.parquet: `raw_data.to_parquet("clean_data.parquet", index=False)` 
+
+Далее надо установить дополнительную библиотеку: `pip install pyarrow`
+
 После установки и запуска скрипта появился файл. В нём лежат все строки DataFrame с правильными типами.
