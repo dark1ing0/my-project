@@ -12,27 +12,39 @@ params = {
     "page_size": 10,  # количество продуктов
 }
 
-# Отправка GET-запроса
-response = requests.get(url, params=params)
+try:
+    response = requests.get(url, params=params, timeout=10)  # Отправка GET-запроса
+    response.raise_for_status()  # проверка успешности запроса
+except requests.RequestException as e:
+    print("Ошибка запроса:", e)
+    raise SystemExit(1)
 
-# Проверяем успешность запроса
-if response.status_code == 200:
-    data = response.json()  # Получаем JSON
-    products = data.get("products", [])  # список продуктов
+# Получаем данные
+data = response.json()
+products = data.get("products", [])
 
-    # Загружаем список словарей в DataFrame
-    df = pd.DataFrame(products)  # превратили в таблицу
+if not products:
+    print("Продукты не найдены. Проверьте API и параметры запроса.")
+    raise SystemExit(1)
 
-    # Выбираем колонки
-    cols_to_show = ["product_name", "brands", "categories", "nutriments"]
-    df_subset = df[cols_to_show]
+# Загружаем список словарей в DataFrame
+df = pd.DataFrame(products)  # превратили в таблицу
 
-    # Показываем первые 10 строк
-    print("Первые 10 строк выбранных данных:")
-    print(df_subset.head(10))  # показали первые 10 строк
+# Выбираем колонки
+cols_to_show = ["product_name", "brands", "categories", "nutriments"]
+df_subset = df[cols_to_show]
 
-    # Типы колонок
-    print("\nТипы колонок:")
-    print(df_subset.dtypes)
-else:
-    print("Ошибка запроса:", response.status_code)
+# Приведение типов (все текстовые колонки в str, nutriments оставляем как объект)
+for col in ["product_name", "brands", "categories"]:
+    df_subset.loc[:, col] = df_subset[col].astype(str)
+
+# Выводим на экран
+print("Первые 10 строк выбранных данных:")
+print(df_subset.head(10))
+print("\nТипы колонок:")
+print(df_subset.dtypes)
+
+print(f"\nВсего записей: {len(df_subset)}")
+
+# Сохраняем в Parquet
+df_subset.to_parquet("open_food_facts.parquet", index=False)
