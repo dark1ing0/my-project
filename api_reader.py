@@ -1,5 +1,10 @@
 import pandas as pd  # чтобы хранить данные в таблице
 import requests  # для отправки запросов к API
+import os  # чтобы работать с путями
+
+pd.set_option("display.max_columns", None)  # показывать все колонки
+pd.set_option("display.max_colwidth", 40)  # показывать весь текст в колонках
+pd.set_option("display.width", 200)  # ширина окна вывода
 
 # URL Open Food Facts API Example
 url = "https://world.openfoodfacts.org/cgi/search.pl"
@@ -11,6 +16,15 @@ params = {
     "json": 1,  # хотим JSON
     "page_size": 10,  # количество продуктов
 }
+
+# Определяем путь к директории, где лежит сам скрипт
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Путь к папке api_example (от корня проекта)
+api_dir = os.path.join(current_dir, "api_example")
+
+# Путь к parquet-файлу в этой же директории
+parquet_path = os.path.join(current_dir, "open_food_facts.parquet")
 
 try:
     response = requests.get(url, params=params, timeout=10)  # Отправка GET-запроса
@@ -47,4 +61,5 @@ print(df_subset.dtypes)
 print(f"\nВсего записей: {len(df_subset)}")
 
 # Сохраняем в Parquet
-df_subset.to_parquet("open_food_facts.parquet", index=False)
+df_subset.to_parquet(parquet_path, index=False)
+print(f"Данные сохранены в: {parquet_path}\n")
