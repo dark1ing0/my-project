@@ -92,16 +92,15 @@ str | "USA", "Hello", "123" | Текст: фильтрация, группиро
 # Проверка пропусков
 Чтобы убедиться, что нет пустых значений:
 
-`print(raw_data.isna().sum())`
+    print(raw_data.isna().sum())
 
 ✅ Результат: все нули, то есть пропусков нет.
 
 # Проверка базовой статистики
 Я использовала `.describe()`, чтобы понять диапазоны значений:
 
-`numeric_cols = raw_data.select_dtypes(include=['int', 'float']).columns`
-
-`raw_data[numeric_cols].describe()`
+    numeric_cols = raw_data.select_dtypes(include=['int', 'float']).columns
+    raw_data[numeric_cols].describe()
 
 ✅ Результат:
 * Минимумы и максимумы выглядят логично.
@@ -111,15 +110,13 @@ str | "USA", "Hello", "123" | Текст: фильтрация, группиро
 # Проверка выбросов
 Чтобы проверить аномалии, я использовала метод IQR:
 
-`import numpy as np`
-
-`for col in numeric_cols:`
-
-    Q1 = raw_data[col].quantile(0.25)
-    Q3 = raw_data[col].quantile(0.75)
-    IQR = Q3 - Q1
-    outliers = raw_data[(raw_data[col] < Q1 - 1.5 * IQR) | (raw_data[col] > Q3 + 1.5 * IQR)]
-    print(f"{col}: выбросов — {len(outliers)}")
+    import numpy as np
+    for col in numeric_cols:
+        Q1 = raw_data[col].quantile(0.25)
+        Q3 = raw_data[col].quantile(0.75)
+        IQR = Q3 - Q1
+        outliers = raw_data[(raw_data[col] < Q1 - 1.5 * IQR) | (raw_data[col] > Q3 + 1.5 * IQR)]
+        print(f"{col}: выбросов — {len(outliers)}")
 
 ✅ Результат: выбросов не обнаружено.
 
