@@ -88,7 +88,8 @@ API Open Food Facts API Example - https://publicapis.io/open-food-facts-api
 `nutriments` — объект (object), внутри словарь с числовыми данными о питательной ценности
 
 Результат работы скрипта:
-<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/6d4aab6f-6e62-4528-a04a-bf3219ac0adc" />
+<img width="1917" height="1016" alt="image" src="https://github.com/user-attachments/assets/1f76be71-9c08-4163-8c89-f41413643df4" />
+
 
 ## 5️⃣ Парсер цитат с сайта citaty.net
 
@@ -114,4 +115,5 @@ API Open Food Facts API Example - https://publicapis.io/open-food-facts-api
 5. Скрипт выводит первые 10 элементов для наглядности, но можно легко вывести все или сохранить в файл.
 
 Результат работ скрипта:
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/7eae211d-0cc3-4a3e-830c-70c13892bfe0" />
+<img width="1913" height="1015" alt="image" src="https://github.com/user-attachments/assets/eb6db3fc-fa51-4a6a-bc52-689ffc1a16f6" />
+
