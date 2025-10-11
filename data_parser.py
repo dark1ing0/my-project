@@ -2,8 +2,13 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import json
+import os  # чтобы работать с путями
 
 URL = "https://ru.citaty.net/"  # URL
+
+# Определяем директорию скрипта
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parquet_path = os.path.join(current_dir, "quotes.parquet")
 
 try:
     response = requests.get(
@@ -51,7 +56,6 @@ df = pd.DataFrame(products)
 # (опционально) на всякий случай можно ещё раз удалить дубликаты в DataFrame
 df = df.drop_duplicates(subset=["quote", "author"]).reset_index(drop=True)
 
-# Выводим результат
 # Настройки pandas для полного отображения цитат
 pd.set_option("display.max_colwidth", None)
 # Красивый вывод первых 10 цитат
@@ -64,5 +68,6 @@ for i, row in df.head(10).iterrows():
 print("Типы колонок:")
 print(df.dtypes)
 
-# Сохраняем в Parquet
-df.to_parquet("quotes.parquet", index=False)
+# Сохраняем в parquet в той же папке
+df.to_parquet(parquet_path, index=False)
+print(f"Паркет сохранён в: {parquet_path}")
