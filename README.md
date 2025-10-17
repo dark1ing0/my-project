@@ -83,8 +83,8 @@ str | "USA", "Hello", "123" | Текст: фильтрация, группиро
 
 С помощью команды ниже я загрузила подготовленные данные в базу:
 
-  df.to_sql(table_name, con=engine, schema="public", if_exists="replace", index=False)
-  
+`df.to_sql(table_name, con=engine, schema="public", if_exists="replace", index=False)`
+
 После успешного выполнения в терминале появилось соответствующее сообщение.
 
 ⚠️ Важно помнить
