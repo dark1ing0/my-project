@@ -163,7 +163,7 @@ pip install -r requirements.txt
 Главный скрипт `main.py` запускает весь ETL-процесс и предоставляет CLI-интерфейс.
 
 Пример запуска:
-`python etl/main.py --source путь/к/файлу.csv`
+`python etl/main.py --source путь к файлу.csv`
 
 Параметры:
 * `--source` - путь к исходному CSV-файлу или URL файла.
