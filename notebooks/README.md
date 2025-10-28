@@ -126,4 +126,4 @@
 
 # Динамический
 Интерактивный график, где можно двигать ползунок по годам, увеличивать участки и наводить мышкой для подсказок.
-<img width="1523" height="657" alt="image" src="https://github.com/user-attachments/assets/63221487-4a0c-40d8-a241-d9714822dafb" />
+<img width="1408" height="564" alt="image" src="https://github.com/user-attachments/assets/02276b4f-f309-4271-936b-f4704c432f78" />
