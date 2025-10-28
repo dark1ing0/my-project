@@ -41,7 +41,7 @@ my-project/                                  # Главная папка про�
 
 Посмотреть интерактивную версию ноутбука можно по ссылке:
 
-👉 [Открыть EDA.ipynb через nbviewer.org](https://nbviewer.org/github.com/dark1ing0/my-project/blob/165a5fe5aeaf26c19c56225afaabe8ac575ac701/notebooks/EDA.ipynb)
+👉 [Открыть EDA.ipynb через nbviewer.org](https://nbviewer.org/github/dark1ing0/my-project/blob/44d05311e30ff014dc5334a4d24601e223059079/notebooks/EDA.ipynb)
 
 ---
 
