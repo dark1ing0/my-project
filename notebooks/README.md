@@ -123,3 +123,7 @@
 
 Позволяет увидеть закономерности и связи между различными параметрами датасета.
 <img width="3585" height="3546" alt="download" src="https://github.com/user-attachments/assets/c89dfe3d-b035-42ce-aca9-bec9018dfded" />
+
+# Динамический
+Интерактивный график, где можно двигать ползунок по годам, увеличивать участки и наводить мышкой для подсказок.
+<img width="1523" height="657" alt="image" src="https://github.com/user-attachments/assets/63221487-4a0c-40d8-a241-d9714822dafb" />
