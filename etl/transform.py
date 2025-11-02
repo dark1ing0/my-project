@@ -1,32 +1,31 @@
 def transform_types(df):
     """
-    Приводим типы колонок к нужным:
-    - Year → int
-    - Feedstock_Yield → float
-    - Bioethanol_Growth → float
-    итп
+    Приведение типов колонок и добавление новой колонки Cost_per_Unit.
     """
-    df["Year"] = df["Year"].astype(int)
-    df["Country"] = df["Country"].astype(str)
-    df["Feedstock_Yield"] = df["Feedstock_Yield"].astype(float)
-    df["Production_Capacity"] = df["Production_Capacity"].astype(float)
-    df["Processing_Tech_Efficiency"] = df["Processing_Tech_Efficiency"].astype(float)
-    df["Energy_Consumption"] = df["Energy_Consumption"].astype(float)
-    df["Feedstock_Cost"] = df["Feedstock_Cost"].astype(float)
-    df["Transportation_Cost"] = df["Transportation_Cost"].astype(float)
-    df["Distribution_Cost"] = df["Distribution_Cost"].astype(float)
-    df["Carbon_Emissions"] = df["Carbon_Emissions"].astype(float)
-    df["Water_Usage"] = df["Water_Usage"].astype(float)
-    df["Market_Demand"] = df["Market_Demand"].astype(int)
-    df["Price_Per_Gallon"] = df["Price_Per_Gallon"].astype(float)
-    df["Govt_Incentive"] = df["Govt_Incentive"].astype(float)
-    df["Bioethanol_Growth"] = df["Bioethanol_Growth"].astype(float)
+    # Словарь колонок и типов
+    types_dict = {
+        "Year": int,
+        "Country": str,
+        "Feedstock_Yield": float,
+        "Production_Capacity": float,
+        "Processing_Tech_Efficiency": float,
+        "Energy_Consumption": float,
+        "Feedstock_Cost": float,
+        "Transportation_Cost": float,
+        "Distribution_Cost": float,
+        "Carbon_Emissions": float,
+        "Water_Usage": float,
+        "Market_Demand": int,
+        "Price_Per_Gallon": float,
+        "Govt_Incentive": float,
+        "Bioethanol_Growth": float,
+    }
 
-    print("Типы колонок успешно приведены.")
+    # Преобразуем типы
+    df = df.astype(types_dict)
 
     # Новая колонка
     df["Cost_per_Unit"] = df["Feedstock_Cost"] / df["Production_Capacity"]
-    df["Cost_per_Unit"] = df["Cost_per_Unit"].astype(float)
 
     # Проверка пропусков
     missing = df.isna().sum().sum()

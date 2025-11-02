@@ -1,24 +1,9 @@
 import argparse
-import sqlite3
+import os
 from etl.extract import load_csv, save_raw
 from etl.transform import transform_types
 from etl.load import load_to_db, save_parquet
 from etl.validate import validate_df
-
-
-def get_db_url():
-    """
-    Считывает учетные данные из creds.db и возвращает URL для SQLAlchemy.
-    """
-    conn = sqlite3.connect("creds.db")
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM access")
-    host, port, user, password = cursor.fetchone()
-    conn.close()
-
-    dbname = "homeworks"
-    db_url = f"postgresql+psycopg2://{user}:{password}@{host}:{port}/{dbname}"
-    return db_url
 
 
 def main():
@@ -27,19 +12,8 @@ def main():
         "--source", required=True, help="URL или путь к исходному CSV файлу"
     )
     parser.add_argument(
-        "--table",
-        default="revyakina",
-        help="Название таблицы для записи в PostgreSQL",
+        "--table", default="revyakina", help="Имя таблицы для PostgreSQL"
     )
-    parser.add_argument(
-        "--parquet",
-        default="data/processed/processed_data.parquet",
-        help="Путь для сохранения parquet файла",
-    )
-    parser.add_argument(
-        "--validate", action="store_true", help="Включить валидацию данных"
-    )
-
     args = parser.parse_args()
 
     # Загрузка и сохранение raw данных
@@ -49,18 +23,26 @@ def main():
     # Трансформации
     df = transform_types(df)
 
-    # Валидация (если указан флаг)
-    if args.validate:
-        validate_df(df)
-
     # Сохранение parquet
-    save_parquet(df, args.parquet)
+    save_parquet(df)
 
-    # Запись в базу PostgreSQL
-    db_url = get_db_url()
-    load_to_db(df, table_name=args.table, db_url=db_url)
+    # Валидация (опционально)
+    validate_df(df)
 
-    print("ETL pipeline выполнен успешно!")
+    # Подключение к БД через переменные окружения
+    user = os.environ.get("DB_USER")
+    password = os.environ.get("DB_PASSWORD")
+    host = os.environ.get("DB_HOST")
+    port = os.environ.get("DB_PORT")
+    dbname = os.environ.get("DB_NAME", "homeworks")  # default
+
+    if not all([user, password, host, port, dbname]):
+        raise ValueError("Не заданы все переменные окружения для подключения к БД!")
+
+    db_url = f"postgresql+psycopg2://{user}:{password}@{host}:{port}/{dbname}"
+
+    # Загрузка первых 100 строк в БД
+    load_to_db(df, args.table, db_url)
 
 
 if __name__ == "__main__":
