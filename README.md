@@ -156,7 +156,7 @@ str | "USA", "Hello", "123" | Текст: фильтрация, группиро
 # Установка
 Клонируйте репозиторий:
 ```
-git clone https://github.com/your-username/my-project.git
+git clone https://github.com/dark1ing0/my-project.git
 cd my-project
 ```
 Убедитесь, что у вас установлены все зависимости.
