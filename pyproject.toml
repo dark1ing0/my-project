@@ -1,24 +1,35 @@
-[build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta"
-
 [project]
 name = "my-project"
 version = "0.1.0"
-description = "ETL pipeline: extract, transform, load, and validate CSV data."
+description = "ETL pipeline for Bioethanol dataset"
 authors = [
-  { name = "Karina" }
+    { name="Karina R.", email="your_email@example.com" }
 ]
 readme = "README.md"
 requires-python = ">=3.10"
+license = {text = "MIT"}
+keywords = ["ETL", "bioethanol", "data", "pipeline"]
+
 dependencies = [
-  "pandas>=2.3.0",
-  "numpy>=2.3.0",
-  "python-dateutil>=2.9.0",
-  "pytz>=2025.2",
-  "six>=1.17.0",
-  "tzdata>=2025.2"
+    "pandas>=2.3.2",
+    "numpy>=2.3.3",
+    "sqlalchemy>=2.1.0",
+    "psycopg2-binary>=2.9.7",
 ]
 
-[project.scripts]
-etl = "etl.main:main"
+[tool.poetry]
+name = "my-project"
+version = "0.1.0"
+description = "ETL pipeline for Bioethanol dataset"
+authors = ["Karina R."]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pandas = "^2.3.2"
+numpy = "^2.3.3"
+sqlalchemy = "^2.1.0"
+psycopg2-binary = "^2.9.7"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
