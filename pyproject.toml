@@ -3,7 +3,7 @@ name = "my-project"
 version = "0.1.0"
 description = "ETL pipeline for Bioethanol dataset"
 authors = [
-    { name="Karina R.", email="your_email@example.com" }
+    { name="Karina R." }
 ]
 readme = "README.md"
 requires-python = ">=3.10"
