@@ -151,14 +151,6 @@ str | "USA", "Hello", "123" | Текст: фильтрация, группиро
 3. Load - выгрузку первых 100 строк в PostgreSQL и сохранение всего датасета в формате Parquet (`data/processed`).
 4. Validate (опционально) - проверку на пропуски и наличие обязательных колонок.
 
-# Установка зависимостей
-```
-python -m venv venv
-source venv/Scripts/activate      # Windows
-или source venv/bin/activate     # Linux/Mac
-pip install -r requirements.txt
-```
-
 # Использование
 Главный скрипт `main.py` запускает весь ETL-процесс и предоставляет CLI-интерфейс.
 
